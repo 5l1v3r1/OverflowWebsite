@@ -2,11 +2,10 @@ from flask import Flask, render_template, request, abort
 from utilites.TxtFileHelper import AddLineBreaks
 from utilites.GithubScraper import get_github_projects
 from utilites.AccountCracker import run
-from git import Repo 
 from flask.json import jsonify
 import hmac
 import hashlib
-import threading
+import git
 
 
 app = Flask(__name__)
@@ -33,11 +32,6 @@ def webhook():
         if not is_valid_signature(x_hub_signature, request.data, "Mantini88"):
             print('Deploy signature failed: {sig}'.format(sig=x_hub_signature))
             abort(418)
-        # repo = Repo('overflow/')
-        # origin = repo.remotes.origin
-        # origin.pull()
-
-        import git
         g = git.Git('overflow/')
         g.pull('origin','master')
         return 'Updated PythonAnywhere successfully', 200
