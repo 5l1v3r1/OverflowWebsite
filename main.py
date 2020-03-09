@@ -34,8 +34,7 @@ def webhook():
         # if not is_valid_signature(x_hub_signature, request.data, "Mantini88"):
         #     print('Deploy signature failed: {sig}'.format(sig=x_hub_signature))
         #     abort(418)
-
-        repo = Repo('https://github.com/NMan1/OverflowWebsite')
+        repo = Repo('overflow/')
         origin = repo.remotes.origin
         origin.pull()
         return 'Updated PythonAnywhere successfully', 200
