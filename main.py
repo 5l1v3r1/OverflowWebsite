@@ -38,7 +38,7 @@ def webhook():
         # origin.pull()
 
         import git
-        g = git.Git('git-repo')
+        g = git.Git('overflow/')
         g.pull('origin','master')
         return 'Updated PythonAnywhere successfully', 200
     else:
