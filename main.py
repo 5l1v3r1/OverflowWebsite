@@ -33,9 +33,13 @@ def webhook():
         if not is_valid_signature(x_hub_signature, request.data, "Mantini88"):
             print('Deploy signature failed: {sig}'.format(sig=x_hub_signature))
             abort(418)
-        repo = Repo('overflow/')
-        origin = repo.remotes.origin
-        origin.pull()
+        # repo = Repo('overflow/')
+        # origin = repo.remotes.origin
+        # origin.pull()
+
+        import git
+        g = git.Git('git-repo')
+        g.pull('origin','branch-master')
         return 'Updated PythonAnywhere successfully', 200
     else:
         return 'Wrong event type', 400
