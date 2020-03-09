@@ -39,7 +39,7 @@ def webhook():
 
         import git
         g = git.Git('git-repo')
-        g.pull('origin','branch-master')
+        g.pull('origin','master')
         return 'Updated PythonAnywhere successfully', 200
     else:
         return 'Wrong event type', 400
