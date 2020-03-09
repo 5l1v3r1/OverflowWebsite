@@ -35,7 +35,7 @@ h1 {
     width: 45.3%;
     color: white;
 
-    border-radius: 4px; 
+    border-radius: 5px; 
     box-shadow: 0 4px 8px 0 var(--shadow-color);
     transition: 0.3s;
 }
@@ -59,6 +59,11 @@ h1 {
     background-color: var(--shadow-color);
     border: 1px solid black;
     border-radius: 4px;
+    transition-duration: 1s;
+}
+
+.card-action:hover {
+    transform: scale(1.1);
 }
 
 .card-action a {

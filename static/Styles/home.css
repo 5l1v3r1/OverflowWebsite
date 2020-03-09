@@ -25,37 +25,58 @@ h1 {
     width: 100%;
 }
 
-.main-content, .end-content {
+.main-content, .end-content { 
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
     color: white;
 }
 
 .main-content {
-    display: inline-block;
     margin: 180px 0;
-    font-size: 48px;
+    font-size: 58px;
     font-weight: bold;
     letter-spacing: 0.3em;
     text-transform: uppercase;
+
+    animation: main-content;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
 
-.main-content.animation {
-    transition:2s;
-    font-size: 68px;
+@keyframes main-content {
+    0% { top: -40% }
+    100% { top: 0% }
 }
 
 .end-content {
-    top: 20%;
-    text-align: center;
+    top: 25%;
     font-size: 18px;
+    opacity: 0;
+
+    animation: end-content;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes end-content {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .icons {
     position: relative;
     bottom: 20%;
     right: 2%;
+
+    animation: icons;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes icons {
+    0% { bottom: -40% }
+    100% { bottom: 20% }
 }
 
 .icons ul {
