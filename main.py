@@ -7,7 +7,6 @@ from flask.json import jsonify
 import hmac
 import hashlib
 import threading
-import time
 
 
 app = Flask(__name__)
@@ -30,10 +29,10 @@ def home():
 @app.route('/update_server', methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        # x_hub_signature = request.headers.get('X-Hub-Signature')
-        # if not is_valid_signature(x_hub_signature, request.data, "Mantini88"):
-        #     print('Deploy signature failed: {sig}'.format(sig=x_hub_signature))
-        #     abort(418)
+        x_hub_signature = request.headers.get('X-Hub-Signature')
+        if not is_valid_signature(x_hub_signature, request.data, "Mantini88"):
+            print('Deploy signature failed: {sig}'.format(sig=x_hub_signature))
+            abort(418)
         repo = Repo('overflow/')
         origin = repo.remotes.origin
         origin.pull()
