@@ -1,0 +1,100 @@
+{% extends "header.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/layout.css"/>
+<title>Reddit Reposter</title>
+
+<div class="container">
+    <div class="box1">
+        <div class="head1">
+            <h2>Reposting Bot Settings</h2>
+        </div>
+        <form method="POST">
+            <button class="btn launch-reddit" type="submit" name="action">Launch</button>
+            <div class="row top">
+                <form class="col s12">
+                    <div class="row top">
+                        <div class="input-field col s12">
+                            <input id="link" type="text" class="validate" name="link" autocomplete="off" value="https://www.reddit.com/">
+                            <label for="link">Link to post</label>
+                            <span class="helper-text" data-error="Invalid Email" data-success=""></span>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="msg1" type="text" class="validate" name="msg1" autocomplete="off">
+                            <label for="msg1">Message to send</label>
+                            <span class="helper-text" data-error="Invalid Email" data-success=""></span>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="msg2" type="text" class="validate" name="msg2" autocomplete="off">
+                            <label for="msg2">Second message</label>
+                            <span class="helper-text" data-error="Invalid Email" data-success=""></span>
+                        </div>
+                        <div class="input-field col s12" style="margin: -40px 0 0 0;">
+                            Number of messages to send:
+                            <div class="input-field inline">
+                              <input id="email_inline" value="1" type="text" class="validate">
+                            </div>
+                        </div>
+                        <div class="input-field col s12" style="margin: -20px 0 0 0;">
+                            <p>
+                                <label>
+                                  <input type="checkbox" class="filled-in" checked="checked" />
+                                  <span>Use default account</span>
+                                </label>
+                                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label>
+                                  <input type="checkbox" class="filled-in" checked="checked" />
+                                  <span>Use proxy server</span>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </form>
+    </div>
+    <div class="box2">
+        <div class="head2">
+            <h2>Sent Messages</h2>
+        </div>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar" style="border: none; background-color: transparent;">
+
+            <table class="table table-bordered table-striped mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Message</th>
+                </tr>
+              </thead>
+              <tbody style="color: white;">
+                {% for account in value %}
+                    <tr>
+                        <th scope="row">{{account.index}}</th>
+                        <td>{{account.username}}</td>
+                        <td>{{account.password}}</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          
+          </div>
+    </div>
+    <div class="box3">
+        <div class="head3">
+            <h2>Bot Information</h2>
+        </div>
+        <div style="border: none; background-color: transparent;">
+            <p style="margin-top: -7px;">
+                Account: 
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username: ____TendieLover____
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: Nick6776
+                <br>
+                <br>
+                Karma:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post:    50
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment: 10
+            </p>   
+        </div> 
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,125 @@
+    :root {
+        --main-color: #c23838;
+        --main-color-hovered: rgba(194, 56, 56, .6);
+    }
+
+    html, body {margin: 0; height: 100%; overflow: hidden}
+
+    .container{
+        position: absolute;
+        width: 1000px;
+        height: 600px;
+        z-index: 15;
+        top: 50%;
+        left: 50%;
+        margin: -250px 0 0 -500px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        color: black;
+    }
+
+    .container div{
+        background-color: white;
+        border: .8px black solid;
+        padding: 1em;
+    }
+
+    .head1, .head2, .head3 {
+        font-family: 'Courier New', Courier, monospace;
+        margin-top: -16px; 
+        margin-left: -16px;
+        font-size: xx-large;
+        border-radius: 2px 2px 0 0;
+    }
+
+    .head1 { 
+        width: 596px;
+        height: 30px;
+    }
+
+    .head2 { 
+        width: 394px;
+        height: 50px;
+    }
+
+    .head3 { 
+        width: 394px;
+        height: 10px;
+    }
+
+    .head1 h2 { 
+        margin: -20px auto;
+        font-size: xx-large;
+    }
+
+    .head2 h2 { 
+        margin: -20px auto;
+        font-size: xx-large;
+    }
+
+    .head3 h2 { 
+        margin: -20px auto;
+        font-size: xx-large;
+        height: 400px;
+    }
+
+    .progress, .progress h6 {
+        top: -180px;
+    }
+
+    .waves-effect, .btn {
+        background-color: var(--main-color);
+    }
+
+    .btn:hover {
+        background-color: var(--main-color-hovered);
+    }
+
+    .row, .row.top, .input-field.col.s12 { border: none;}
+    .input-field.inline { border: none; }
+
+    .box1, .box2, .box3 {
+        border-radius: 2px;
+        -webkit-transition: -webkit-box-shadow .25s;
+        transition: -webkit-box-shadow .25s;
+        transition: box-shadow .25s;
+        transition: box-shadow .25s, -webkit-box-shadow .25s;
+    }
+
+    .box1 { grid-area: 1 / 1 / 6 / 4;   position: relative;}
+    .box2 { grid-area: 1 / 4 / 4 / 6;}
+    .box3 { grid-area: 4 / 4 / 6 / 6; }
+
+    .my-custom-scrollbar {
+        border: 0 none;
+        position: relative;
+        top: 0px;
+        height: 290px;
+        overflow: auto;
+    }
+    .table-wrapper-scroll-y { display: block;}
+    
+    .launch-reddit {
+        position: absolute; 
+        display: inline-block;
+        bottom: 10; 
+        right: 50%; 
+        transform: translateX(50%);
+        font-size: large;
+        height: 40; 
+        width: 250;
+    }
+
+    progress {   background: crimson; }
+    progress::-webkit-progress-value { background: var(--main-color);}
+    progress::-webkit-progress-bar { background: #9D9EA3 ;}
+    .progresslabel {
+        font-family: "Arial";
+        position: relative;
+        left: 40px;
+        top: -26px;
+        font-size: large;
+    }

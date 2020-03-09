@@ -1,0 +1,67 @@
+:root {
+    --card-color:  rgba(0, 0, 0, .8);
+    --card-action-color:  rgba(194, 56, 56, 1);
+    --shadow-color: rgba(194, 56, 56, .6);
+}
+
+header {
+    margin: 0px;
+    padding: 15px 15px;
+    background-color: rgba(245,245,247,0.7);
+}
+
+h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    margin: 5px 0 0 0;
+    color: black;
+    font-weight: lighter;
+    letter-spacing: 0.12em;
+}
+
+.card-title {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+.card {
+    display: inline-block;
+    padding: 15px;
+    background-color: var(--card-color);
+    margin: 25px 25px 0px 25px;
+    height: 125 px;
+    width: 45.3%;
+    color: white;
+
+    border-radius: 4px; 
+    box-shadow: 0 4px 8px 0 var(--shadow-color);
+    transition: 0.3s;
+}
+
+/* Fixes padding in center being 50 instead of 25*/
+.card:nth-child(even) {
+    margin: 25px 25px 0px 0px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 var(--shadow-color);
+}
+
+.card-content {
+    padding: 4px 0px;
+}
+
+.card-action {
+    padding: 4px;
+    width: 75px;
+    background-color: var(--shadow-color);
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.card-action a {
+    text-decoration: none;
+    color:white;
+}

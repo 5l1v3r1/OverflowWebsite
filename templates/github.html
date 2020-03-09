@@ -1,0 +1,29 @@
+{% extends "header.html" %}
+
+{% block content %}
+<title>Home</title>
+<link rel="stylesheet" href="/static/Styles/github.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<header>
+    <h1>
+        <a href="https://github.com/NMan1"><span style="color: #c23838;"><i href="https://github.com/NMan1" class="fa fa-github" aria-hidden="true"></i></span></a></li>
+        Github Projects
+    </h1>
+</header>
+
+<section class="content">
+    {% for dict in value %}
+    <div class="card">
+            <span class="card-title">{{dict.title}}</span>
+            <div class="card-content">
+                <p>{{dict.description}}</p>
+            </div>
+            <div class="card-action">
+                <a href="https://github.com{{dict.link}}">Visit Repo</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

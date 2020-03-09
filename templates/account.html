@@ -1,0 +1,86 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="/static/Styles/account.css"/>
+<title>NEISD Cracker</title>
+
+<script>
+    window.setInterval("update_bar()", 600);
+    function update_bar()
+    {
+        if (document.getElementById("bar").value == 100)
+            document.getElementById("bar").value = 1;
+
+        document.getElementById("bar").value = document.getElementById("bar").value + 1;
+    }
+</script>
+
+<div class="container">
+    <div class="box1">
+        <div class="head1">
+            <h2>Account Cracker Settings</h2>
+        </div>
+        <form method="POST">
+            <button class="waves-effect waves-light btn" type="submit" name="action" style="height: 40; width: 250;  position: absolute; bottom: 10; right: 52%; font-size: large;">Launch</button>
+            <div class="row top">
+                <form class="col s12">
+                  <div class="row top">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" class="validate" name="email1" autocomplete="off" value="@stu.neisd.net">
+                      <label for="email">Students Email Address</label>
+                      <span class="helper-text" data-error="Invalid Email" data-success=""></span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="email2" type="email" class="validate" name="email2" autocomplete="off">
+                        <label for="email2">Secound Email Address (optional)</label>
+                        <span class="helper-text" data-error="Invalid Email" data-success=""></span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="email3" type="email" class="validate" name="email3" autocomplete="off">
+                        <label for="email3">Third Email Address (optional)</label>
+                        <span class="helper-text" data-error="Invalid Email" data-success=""></span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </form>
+        <progress id="bar" value="1" max="100" data-label="Test" style="position: absolute; left: 9.5%; width: 480px;"></progress>
+        <span class="progresslabel"><span id='proglabel'>Estimated crack time: 10-60 secounds </span></span>
+        <a href="/default-accounts" class="waves-effect waves-light btn" style="height: 40; width: 250;  position: absolute; bottom: 10; right: 5%; font-size: large;">Default List</a>
+    </div>
+    <div class="box2">
+        <div class="head2">
+            <h2>Cracked Accounts</h2>
+        </div>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar" style="border: none; background-color: transparent;">
+
+            <table class="table table-bordered table-striped mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Password</th>
+                </tr>
+              </thead>
+              <tbody style="color: white;">
+                {% for account in value %}
+                    <tr>
+                        <th scope="row">{{account.index}}</th>
+                        <td>{{account.username}}</td>
+                        <td>{{account.password}}</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          
+          </div>
+    </div>
+    <div class="box3">
+        <div class="head3">
+            <h2>Download TxT File</h2>
+            <a href="/generated-accounts" class="waves-effect waves-light btn" style="height: 40; width: 250;  position: absolute; bottom: 10; left: 67%; font-size: large;">Download</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

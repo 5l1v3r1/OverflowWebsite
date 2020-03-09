@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/Styles/header.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
+    <style>
+         ::-webkit-scrollbar { display: none; }
+    </style>
+
+    <body>
+        <nav class="nav">
+            <div class="menu-wrapper">
+                <ul class="menu-items">
+                    <li><a href="/home"><img src="/static/Images/logo.png" height="30"></a></li>
+                    <li><a href="/github" class="item active">Projects</a></li>
+                    <li><a href="/account" class="item">Accounts</a></li>
+                    <li><a href="/coupon" class="item">Coupon</a></li>
+                    <li><a href="/reddit" class="item">Reddit</a></li>
+                    <li><a href="/khan-academy" class="item">Khan Academy</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
