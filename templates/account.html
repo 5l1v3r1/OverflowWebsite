@@ -3,59 +3,47 @@
 {% block content %}
 
 <link rel="stylesheet" type="text/css" href="/static/Styles/account.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>NEISD Cracker</title>
 
-<script>
-    window.setInterval("update_bar()", 600);
-    function update_bar()
-    {
-        if (document.getElementById("bar").value == 100)
-            document.getElementById("bar").value = 1;
-
-        document.getElementById("bar").value = document.getElementById("bar").value + 1;
-    }
-</script>
+<header>
+  <h1>
+      <a href="https://skyward.neisd.net/StudentSTS/"><span style="color: #c23838;"><i href="https://skyward.neisd.net/StudentSTS/" class="fa fa-key" aria-hidden="true"></i></span></a></li>
+      Account Cracker
+  </h1>
+</header>
 
 <div class="container">
-    <div class="box1">
-        <div class="head1">
+    <div class="box one">
+        <div class="header">
             <h2>Account Cracker Settings</h2>
         </div>
-        <form method="POST">
-            <button class="waves-effect waves-light btn" type="submit" name="action" style="height: 40; width: 250;  position: absolute; bottom: 10; right: 52%; font-size: large;">Launch</button>
-            <div class="row top">
-                <form class="col s12">
-                  <div class="row top">
-                    <div class="input-field col s12">
-                      <input id="email" type="email" class="validate" name="email1" autocomplete="off" value="@stu.neisd.net">
-                      <label for="email">Students Email Address</label>
-                      <span class="helper-text" data-error="Invalid Email" data-success=""></span>
-                    </div>
-                    <div class="input-field col s12">
-                        <input id="email2" type="email" class="validate" name="email2" autocomplete="off">
-                        <label for="email2">Secound Email Address (optional)</label>
-                        <span class="helper-text" data-error="Invalid Email" data-success=""></span>
-                    </div>
-                    <div class="input-field col s12">
-                        <input id="email3" type="email" class="validate" name="email3" autocomplete="off">
-                        <label for="email3">Third Email Address (optional)</label>
-                        <span class="helper-text" data-error="Invalid Email" data-success=""></span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-        </form>
-        <progress id="bar" value="1" max="100" data-label="Test" style="position: absolute; left: 9.5%; width: 480px;"></progress>
-        <span class="progresslabel"><span id='proglabel'>Estimated crack time: 10-60 secounds </span></span>
-        <a href="/default-accounts" class="waves-effect waves-light btn" style="height: 40; width: 250;  position: absolute; bottom: 10; right: 5%; font-size: large;">Default List</a>
+        <div class="content">
+          <form method="POST">
+            <div class="input-field">
+              <input id="email" type="email" class="validate" name="email1" autocomplete="off" value="@stu.neisd.net">
+              <label for="email">Students Email Address</label>
+            </div>
+            <div class="input-field">
+                <input id="email2" type="email" class="validate" name="email2" autocomplete="off">
+                <label for="email2">Secound Email Address (optional)</label>
+            </div>
+            <div class="input-field">
+                <input id="email3" type="email" class="validate" name="email3" autocomplete="off">
+                <label for="email3">Third Email Address (optional)</label>
+            </div>
+          </form>
+          <button class="btn" type="submit" name="action">Launch</button>
+          <button class="btn"><a href="/default-accounts">Default List</a></button>
+        </div>
     </div>
-    <div class="box2">
-        <div class="head2">
+    <div class="box two">
+        <div class="header">
             <h2>Cracked Accounts</h2>
         </div>
-        <div class="table-wrapper-scroll-y my-custom-scrollbar" style="border: none; background-color: transparent;">
-
-            <table class="table table-bordered table-striped mb-0">
+        <div class="content">
+          <div class="table-wrapper">
+            <table class="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -72,14 +60,16 @@
                     </tr>
                 {% endfor %}
               </tbody>
-            </table>
-          
+            </table>        
           </div>
+        </div>
     </div>
-    <div class="box3">
-        <div class="head3">
+    <div class="box three">
+        <div class="header">
             <h2>Download TxT File</h2>
-            <a href="/generated-accounts" class="waves-effect waves-light btn" style="height: 40; width: 250;  position: absolute; bottom: 10; left: 67%; font-size: large;">Download</a>
+        </div>
+        <div class="content">
+          <button class="btn"><a href="/generated-accounts">Download</a></button>
         </div>
     </div>
 </div>

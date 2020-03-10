@@ -2,12 +2,13 @@
     --card-color:  rgba(0, 0, 0, .8);
     --card-action-color:  rgba(194, 56, 56, 1);
     --shadow-color: rgba(194, 56, 56, .6);
+    --button-color: #c23838
 }
 
 header {
     margin: 0px;
     padding: 15px 15px;
-    background-color: rgba(245,245,247,0.7);
+    background-color: rgba(245,245,247, 1);
 }
 
 h1 {
@@ -32,9 +33,10 @@ h1 {
     background-color: var(--card-color);
     margin: 25px 25px 0px 25px;
     height: 125 px;
-    width: 45.3%;
+    width: 45.2%;
     color: white;
 
+    border: 1px solid white;
     border-radius: 5px; 
     box-shadow: 0 4px 8px 0 var(--shadow-color);
     transition: 0.3s;
@@ -47,22 +49,24 @@ h1 {
 
 .card:hover {
     box-shadow: 0 8px 16px 0 var(--shadow-color);
+    transform: scale(1.015);
 }
 
 .card-content {
     padding: 4px 0px;
 }
 
-.card-action {
+.btn {
     padding: 4px;
-    width: 75px;
-    background-color: var(--shadow-color);
+    width: 85px;
+    background-color: var(--button-color);
     border: 1px solid black;
     border-radius: 4px;
     transition-duration: 1s;
+    letter-spacing: 0.06em;
 }
 
-.card-action:hover {
+.btn:hover {
     transform: scale(1.1);
 }
 

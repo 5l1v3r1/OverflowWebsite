@@ -1,125 +1,110 @@
-    :root {
-        --main-color: #c23838;
-        --main-color-hovered: rgba(194, 56, 56, .6);
-    }
+:root {
+    --main-color: #c23838;
+    --main-color-backgroud: rgba(0, 0, 0, .8);
+    --shadow-color: rgba(194, 56, 56, .6);
+    --button-color: #c23838;
+}
 
-    html, body {margin: 0; height: 100%; overflow: hidden}
+html, body {margin: 0; height: 100%; overflow: hidden}
 
-    .container{
-        position: absolute;
-        width: 1000px;
-        height: 600px;
-        z-index: 15;
-        top: 50%;
-        left: 50%;
-        margin: -250px 0 0 -500px;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-        color: black;
-    }
+header {
+    margin: 0px;
+    padding: 15px 15px;
+    background-color: rgba(245,245,247, 1);
+}
 
-    .container div{
-        background-color: white;
-        border: .8px black solid;
-        padding: 1em;
-    }
+h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    margin: 5px 0 0 0;
+    color: black;
+    font-weight: lighter;
+    letter-spacing: 0.12em;
+}
 
-    .head1, .head2, .head3 {
-        font-family: 'Courier New', Courier, monospace;
-        margin-top: -16px; 
-        margin-left: -16px;
-        font-size: xx-large;
-        border-radius: 2px 2px 0 0;
-    }
+.container {
+    position: relative;
+    width: 100%; height: 100%;
+    margin: 0;
+    padding: 10px 0 0 0;
+    left: 15%;
+    top: 5%;
 
-    .head1 { 
-        width: 596px;
-        height: 30px;
-    }
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 500px 500px;
+    grid-template-rows: 300px 300px;
+}
 
-    .head2 { 
-        width: 394px;
-        height: 50px;
-    }
+/* ALL BOX CONTENT */
+.box {
+    background-color: var(--main-color-backgroud);
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px 0 var(--shadow-color);
+    transition: 0.5s;
+}
 
-    .head3 { 
-        width: 394px;
-        height: 10px;
-    }
+.box:hover {
+    box-shadow: 0 8px 16px 0 var(--shadow-color);
+    transform: scale(1.015);
+}
 
-    .head1 h2 { 
-        margin: -20px auto;
-        font-size: xx-large;
-    }
+.content {
+    padding: 15px;
+    font-size: 18px;
+}
 
-    .head2 h2 { 
-        margin: -20px auto;
-        font-size: xx-large;
-    }
+.box.one {
+    grid-row: 1/3;
+}
 
-    .head3 h2 { 
-        margin: -20px auto;
-        font-size: xx-large;
-        height: 400px;
-    }
+.box.two {
+}
 
-    .progress, .progress h6 {
-        top: -180px;
-    }
+.box.three {
+    grid-column: 2/3;
+}
 
-    .waves-effect, .btn {
-        background-color: var(--main-color);
-    }
+.header {
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
 
-    .btn:hover {
-        background-color: var(--main-color-hovered);
-    }
+h2 {
+    padding: 0px;
+    margin: 10px;
+    letter-spacing: 0.12em;
+}
 
-    .row, .row.top, .input-field.col.s12 { border: none;}
-    .input-field.inline { border: none; }
+.btn {
+    padding: 4px;
+    width: 85px;
+    background-color: var(--button-color);
+    border: 1px solid black;
+    border-radius: 4px;
+    transition-duration: 1s;
+    letter-spacing: 0.06em;
+}
 
-    .box1, .box2, .box3 {
-        border-radius: 2px;
-        -webkit-transition: -webkit-box-shadow .25s;
-        transition: -webkit-box-shadow .25s;
-        transition: box-shadow .25s;
-        transition: box-shadow .25s, -webkit-box-shadow .25s;
-    }
+.btn:hover {
+    transform: scale(1.1);
+}
 
-    .box1 { grid-area: 1 / 1 / 6 / 4;   position: relative;}
-    .box2 { grid-area: 1 / 4 / 4 / 6;}
-    .box3 { grid-area: 4 / 4 / 6 / 6; }
+.input-field {
 
-    .my-custom-scrollbar {
-        border: 0 none;
-        position: relative;
-        top: 0px;
-        height: 290px;
-        overflow: auto;
-    }
-    .table-wrapper-scroll-y { display: block;}
-    
-    .launch-reddit {
-        position: absolute; 
-        display: inline-block;
-        bottom: 10; 
-        right: 50%; 
-        transform: translateX(50%);
-        font-size: large;
-        height: 40; 
-        width: 250;
-    }
+}
 
-    progress {   background: crimson; }
-    progress::-webkit-progress-value { background: var(--main-color);}
-    progress::-webkit-progress-bar { background: #9D9EA3 ;}
-    .progresslabel {
-        font-family: "Arial";
-        position: relative;
-        left: 40px;
-        top: -26px;
-        font-size: large;
-    }
+.table {
+
+}
+
+.table-wrapper {
+
+}
+
