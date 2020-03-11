@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, abort, redirect
 from utilites.TxtFileHelper import AddLineBreaks
 from utilites.GithubScraper import get_github_projects
 from utilites.AccountCracker import run
@@ -17,6 +17,11 @@ def is_valid_signature(x_hub_signature, data, private_key):
     encoded_key = bytes(private_key, 'latin-1')
     mac = hmac.new(encoded_key, msg=data, digestmod=algorithm)
     return hmac.compare_digest(mac.hexdigest(), github_signature)
+
+
+@app.route("/")
+def default():
+    return redirect("/home")
 
 
 @app.route("/home")
@@ -76,7 +81,7 @@ def generated():
 
 
 @app.route("/default-accounts")
-def default():
+def default_accounts():
     AddLineBreaks()
     return render_template("/txt/default.txt")
 

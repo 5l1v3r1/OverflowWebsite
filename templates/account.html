@@ -19,22 +19,18 @@
             <h2>Account Cracker Settings</h2>
         </div>
         <div class="content">
+          <span id="title">Target email addresses:</span>
+          <span id="specfications">(* reqiured)</span>
           <form method="POST">
-            <div class="input-field">
-              <input id="email" type="email" class="validate" name="email1" autocomplete="off" value="@stu.neisd.net">
-              <label for="email">Students Email Address</label>
-            </div>
-            <div class="input-field">
-                <input id="email2" type="email" class="validate" name="email2" autocomplete="off">
-                <label for="email2">Secound Email Address (optional)</label>
-            </div>
-            <div class="input-field">
-                <input id="email3" type="email" class="validate" name="email3" autocomplete="off">
-                <label for="email3">Third Email Address (optional)</label>
-            </div>
+              <input id="email" type="email"  name="email1" autocomplete="off"  placeholder="Student Email *">
+              <input id="email2" type="email" name="email2" autocomplete="off" placeholder="Student Email">
+              <input id="email3" type="email" name="email3" autocomplete="off" placeholder="Student Email">
+              <input id="email4" type="email" name="email4" autocomplete="off" placeholder="Student Email">
+              <input id="email5" type="email" name="email5" autocomplete="off" placeholder="Student Email">
           </form>
-          <button class="btn" type="submit" name="action">Launch</button>
-          <button class="btn"><a href="/default-accounts">Default List</a></button>
+          <span class="btn-wrapper">
+            <button class="btn" type="submit" name="action">Launch</button>
+          </span>
         </div>
     </div>
     <div class="box two">
@@ -42,16 +38,7 @@
             <h2>Cracked Accounts</h2>
         </div>
         <div class="content">
-          <div class="table-wrapper">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Username</th>
-                  <th scope="col">Password</th>
-                </tr>
-              </thead>
-              <tbody style="color: white;">
+          
                 {% for account in value %}
                     <tr>
                         <th scope="row">{{account.index}}</th>
@@ -59,9 +46,7 @@
                         <td>{{account.password}}</td>
                     </tr>
                 {% endfor %}
-              </tbody>
-            </table>        
-          </div>
+
         </div>
     </div>
     <div class="box three">
@@ -69,7 +54,10 @@
             <h2>Download TxT File</h2>
         </div>
         <div class="content">
-          <button class="btn"><a href="/generated-accounts">Download</a></button>
+          <div class="btn-wrapper">
+            <button class="btn"><a href="/generated-accounts">Download</a></button>
+            <button class="btn"><a href="/default-accounts">Default List</a></button>
+          </div>
         </div>
     </div>
 </div>
