@@ -267,5 +267,17 @@ def run(given_usernames, should_populate=False, should_update=False):
         strip_usernames()
 
     main()
+
+    add = 5 - len(passwords)
+    print(passwords)
+    print(len)
+    if add > 0:
+        starting_num = (5 - add) + 1
+        amnt = 0
+        while amnt != add:
+            passwords.append({'index': str(starting_num), 'username': '', 'password': ''})
+            starting_num += 1
+            amnt += 1
+    
     return passwords
 

@@ -27,10 +27,11 @@
               <input id="email3" type="email" name="email3" autocomplete="off" placeholder="Student Email">
               <input id="email4" type="email" name="email4" autocomplete="off" placeholder="Student Email">
               <input id="email5" type="email" name="email5" autocomplete="off" placeholder="Student Email">
+
+              <span class="btn-wrapper">
+                <button class="btn" type="submit" name="launch" value="Launch">Launch</button>
+              </span>
           </form>
-          <span class="btn-wrapper">
-            <button class="btn" type="submit" name="action">Launch</button>
-          </span>
         </div>
     </div>
     <div class="box two">
@@ -38,15 +39,22 @@
             <h2>Cracked Accounts</h2>
         </div>
         <div class="content">
-          
+          <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+            <tbody>
                 {% for account in value %}
-                    <tr>
-                        <th scope="row">{{account.index}}</th>
-                        <td>{{account.username}}</td>
-                        <td>{{account.password}}</td>
-                    </tr>
+                <tr>
+                    <td>{{account.index}}</td>
+                    <td>{{account.username}}</td>
+                    <td>{{account.password}}</td>
+                </tr>
                 {% endfor %}
-
+            </tbody>
+          </table>
         </div>
     </div>
     <div class="box three">

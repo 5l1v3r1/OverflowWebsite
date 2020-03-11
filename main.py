@@ -52,7 +52,8 @@ def github():
 
 @app.route("/account")
 def cracker():
-    return render_template("account.html")
+    accounts = [{'index': '1', 'username': '', 'password': ''},{'index': '2', 'username': '', 'password': ''},{'index': '3', 'username': '', 'password': ''},{'index': '4', 'username': '', 'password': ''},{'index': '5', 'username': '', 'password': ''},]
+    return render_template("account.html", value=accounts)
 
 
 @app.route("/reddit")
@@ -91,10 +92,12 @@ def form_post():
     emails1 = request.form['email1']
     emails2 = request.form['email2']
     emails3 = request.form['email3']
-    usernames = [emails1, emails2, emails3]
+    emails4 = request.form['email4']
+    emails5 = request.form['email5']
+    usernames = [emails1, emails2, emails3, emails4, emails5]
     accounts = [{'index': '0', 'username': '', 'password': ''},]
     accounts = run(usernames, False, False)
-    return render_template("cracker.html", value=accounts)
+    return render_template("account.html", value=accounts)
 
 
 if __name__ == "__main__":
