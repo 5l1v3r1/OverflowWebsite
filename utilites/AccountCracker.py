@@ -164,7 +164,11 @@ class Website:
 
         options = webdriver.ChromeOptions()
         options.add_argument("headless")
-        self.driver = webdriver.Chrome("/chromedriver.exe", options=options)
+        try:
+            self.driver = webdriver.Chrome("/chromedriver.exe", options=options)
+        except FileNotFoundError:
+            self.driver = webdriver.Chrome("overflow/utilites/chromedriver.exe", options=options)
+
         self.driver.get(self.url)
 
     def login(self):
