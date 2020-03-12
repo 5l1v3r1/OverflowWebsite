@@ -57,7 +57,7 @@ def DeleteLineBreaks():
                 print(line)
                 file.write(line)
     except FileNotFoundError:
-        with open("/txt/default.txt", "r") as file:
+        with open("/templates/txt/default.txt", "r") as file:
             for line in file:
                 if line.find("<br>") != -1 and do_once:
                     do_once = False
@@ -67,7 +67,7 @@ def DeleteLineBreaks():
                     real.replace("<br>", "")
                     lines.append(real)
         
-        with open("/txt/default.txt", "w") as file:
+        with open("/templates/txt/default.txt", "w") as file:
             file.seek(0)
             file.truncate()
             for line in lines:
