@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, TimeoutException, WebDriverException
 from utilites.TxtFileHelper import DeleteLineBreaks
 from flask import render_template
 import time
@@ -166,7 +166,7 @@ class Website:
         options.add_argument("headless")
         try:
             self.driver = webdriver.Chrome("/chromedriver.exe", options=options)
-        except FileNotFoundError:
+        except FileNotFoundError or WebDriverException:
             self.driver = webdriver.Chrome("overflow/utilites/chromedriver.exe", options=options)
 
         self.driver.get(self.url)
