@@ -38,15 +38,27 @@ def update_usernames(write_to_file):
     global usernames
     # add to contents of file
     if write_to_file and len(usernames) > 0:
-        with open('./templates/txt/usernames.txt', 'a') as file:
-            for nig in usernames:
-                if nig == 'arching for matches from ':
-                    continue
-                file.write(nig + "\n")
+        try:
+            with open('/templates/txt/usernames.txt', 'a') as file:
+                for nig in usernames:
+                    if nig == 'arching for matches from ':
+                        continue
+                    file.write(nig + "\n")
+        except FileNotFoundError:
+            with open('overflow/templates/txt/usernames.txt', 'a') as file:
+                for nig in usernames:
+                    if nig == 'arching for matches from ':
+                        continue
+                    file.write(nig + "\n")
     else:
-        with open('./templates/txt/usernames.txt') as file:
-            DeleteLineBreaks()
-            usernames = [line.rstrip('\n') for line in file]
+        try:
+            with open('./templates/txt/usernames.txt') as file:
+                DeleteLineBreaks()
+                usernames = [line.rstrip('\n') for line in file]
+        except FileNotFoundError:
+            with open('overflow/templates/txt/usernames.txt') as file:
+                DeleteLineBreaks()
+                usernames = [line.rstrip('\n') for line in file]
 
 
 def wait_for_element(driver, xpath):
@@ -221,8 +233,13 @@ def main():
                     web.switch += 1
                 elif status == 0:
                     print(f"\nFailed to find password after ({len(starting * 10)} passwords) ({len(starting)} Combos)")
-                    with open('./templates/txt/generated.txt', 'a') as file:
-                        file.write(web.username + ":" + "ERROR" + "<br>" + "\n")
+                    try:
+                        with open('./templates/txt/generated.txt', 'a') as file:
+                            file.write(web.username + ":" + "ERROR" + "<br>" + "\n")
+                    except FileNotFoundError:
+                        with open('overflow/templates/txt/generated.txt', 'a') as file:
+                            file.write(web.username + ":" + "ERROR" + "<br>" + "\n")
+
                     dict = {'index': '', 'username': '', 'password': ''}
                     dict['index'] = index
                     dict['usernames'] = web.username
@@ -233,8 +250,13 @@ def main():
                     done = True
                     index +=1
             else:
-                with open('./templates/txt/generated.txt', 'a') as file:
-                    file.write(web.username + ":" + web.password + "<br>" + "\n")
+                try:
+                    with open('./templates/txt/generated.txt', 'a') as file:
+                        file.write(web.username + ":" + web.password + "<br>" + "\n")
+                except FileNotFoundError:
+                    with open('overflow/templates/txt/generated.txt', 'a') as file:
+                        file.write(web.username + ":" + web.password + "<br>" + "\n")
+
                 dict = {'index': '', 'username': '', 'password': ''}
                 dict['index'] = index
                 dict['username'] = web.username
@@ -253,9 +275,14 @@ def main():
 
 
 def run(given_usernames, should_populate=False, should_update=False):
-    with open('./templates/txt/generated.txt', 'a') as file:
-        file.seek(0)
-        file.truncate()
+    try:
+        with open('./templates/txt/generated.txt', 'a') as file:
+            file.seek(0)
+            file.truncate()
+    except FileNotFoundError:
+        with open('overflow/templates/txt/generated.txt', 'a') as file:
+            file.seek(0)
+            file.truncate()
 
     if should_populate:
         populate_usernames()
