@@ -99,7 +99,7 @@ def generated():
 
 @app.route("/default-accounts")
 def default_accounts():
-    # AddLineBreaks()
+    AddLineBreaks()
     return render_template("/txt/default.txt")
 
 
