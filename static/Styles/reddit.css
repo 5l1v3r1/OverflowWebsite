@@ -7,6 +7,28 @@
     margin: -3px 0;
 }
 
+#bottom {
+    display: block;
+    margin: -5px 0 10px 0;
+}
+
+#bottom-content {
+    margin-left: 30px;
+}
+
+#btn-launch {
+    margin-top: -1px;
+}
+
+.checkbox-wrapper {
+    display: block;
+    margin: 15px;
+}
+
+#small-input {
+    width: 190px;
+    margin-left: 15px;
+}
 
 .table {
     color:black;

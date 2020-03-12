@@ -1,93 +1,88 @@
 {% extends "header.html" %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/static/layout.css"/>
+<link rel="stylesheet" type="text/css" href="/static/Styles/default-styles.css"/>
+<link rel="stylesheet" type="text/css" href="/static/Styles/reddit.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Reddit Reposter</title>
 
+<header>
+    <h1>
+        <a href="https://skyward.neisd.net/StudentSTS/"><span style="color: #c23838;"><i href="https://skyward.neisd.net/StudentSTS/" class="fa fa-comments" aria-hidden="true"></i></span></a></li>
+        Reddit Bot
+    </h1>
+  </header>
+
 <div class="container">
-    <div class="box1">
-        <div class="head1">
+    <div class="box one">
+        <div class="header">
             <h2>Reposting Bot Settings</h2>
         </div>
-        <form method="POST">
-            <button class="btn launch-reddit" type="submit" name="action">Launch</button>
-            <div class="row top">
-                <form class="col s12">
-                    <div class="row top">
-                        <div class="input-field col s12">
-                            <input id="link" type="text" class="validate" name="link" autocomplete="off" value="https://www.reddit.com/">
-                            <label for="link">Link to post</label>
-                            <span class="helper-text" data-error="Invalid Email" data-success=""></span>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="msg1" type="text" class="validate" name="msg1" autocomplete="off">
-                            <label for="msg1">Message to send</label>
-                            <span class="helper-text" data-error="Invalid Email" data-success=""></span>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="msg2" type="text" class="validate" name="msg2" autocomplete="off">
-                            <label for="msg2">Second message</label>
-                            <span class="helper-text" data-error="Invalid Email" data-success=""></span>
-                        </div>
-                        <div class="input-field col s12" style="margin: -40px 0 0 0;">
-                            Number of messages to send:
-                            <div class="input-field inline">
-                              <input id="email_inline" value="1" type="text" class="validate">
-                            </div>
-                        </div>
-                        <div class="input-field col s12" style="margin: -20px 0 0 0;">
-                            <p>
-                                <label>
-                                  <input type="checkbox" class="filled-in" checked="checked" />
-                                  <span>Use default account</span>
-                                </label>
-                                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label>
-                                  <input type="checkbox" class="filled-in" checked="checked" />
-                                  <span>Use proxy server</span>
-                                </label>
-                            </p>
-                        </div>
+        <div class="content">
+            <span id="title">Target email addresses:</span>
+            <span id="specfications">(* reqiured)</span>
+            <form method="POST">
+                <input id="link" type="data" name="link" autocomplete="off" placeholder="Link to subreddit">
+                <input id="msg1" type="data" name="msg1" autocomplete="off" placeholder="Main message">
+                <input id="msg2" type="data" name="msg2" autocomplete="off" placeholder="Footer message">
+
+                <br>
+                <span id="bottom">Bot Settings:</span>
+                <div id="bottom-content">
+                    <input id="small-input" type="data" name="num_msg" autocomplete="off" placeholder="Message Send Count">
+                    <div class="checkbox-wrapper">
+                        <label class="check-label">
+                            <input name="checkbox" type="checkbox" class="filled-in" checked="checked" value="1"/>
+                            Use default account
+                        </label>
                     </div>
-                </form>
-            </div>
-        </form>
+
+                    <div class="checkbox-wrapper">
+                        <label class="check-label">
+                            <input name="checkbox" type="checkbox" class="filled-in" checked="checked" value="2"/>
+                            Use proxy server
+                        </label>
+                    </div>
+                </div>
+                <span id="btn-launch" class="btn-wrapper">
+                    <button class="btn" type="submit" name="launch" value="Launch">Launch</button>
+                </span>
+            </form>
+        </div>
     </div>
-    <div class="box2">
-        <div class="head2">
+    <div class="box two">
+        <div class="header">
             <h2>Sent Messages</h2>
         </div>
-        <div class="table-wrapper-scroll-y my-custom-scrollbar" style="border: none; background-color: transparent;">
-
-            <table class="table table-bordered table-striped mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Message</th>
-                </tr>
-              </thead>
-              <tbody style="color: white;">
-                {% for account in value %}
-                    <tr>
-                        <th scope="row">{{account.index}}</th>
-                        <td>{{account.username}}</td>
-                        <td>{{account.password}}</td>
-                    </tr>
-                {% endfor %}
+        <div class="content">
+            <table class="table">
+              <tr>
+                  <th>#</th>
+                  <th>Subredit</th>
+                  <th># of msg's</th>
+              </tr>
+              <tbody>
+                  {% for data in value %}
+                  <tr>
+                      <td>{{data.id}}</td>
+                      <td>{{data.sub}}</td>
+                      <td>{{data.num_msg}}</td>
+                  </tr>
+                  {% endfor %}
               </tbody>
             </table>
-          
           </div>
     </div>
-    <div class="box3">
-        <div class="head3">
+    <div class="box three">
+        <div class="header">
             <h2>Bot Information</h2>
         </div>
-        <div style="border: none; background-color: transparent;">
+        <div class="content">
             <p style="margin-top: -7px;">
                 Account: 
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username: ____TendieLover____
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: Nick6776
+                <br>
                 <br>
                 <br>
                 Karma:

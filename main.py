@@ -58,12 +58,28 @@ def cracker():
 
 @app.route("/reddit")
 def reddit():
-    return render_template("reddit.html", )
+    data = [{'id': '1', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '2', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '3', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '4', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '5', 'sub': 'reddit.com', 'num_msg': '0'},]
+    return render_template("reddit.html", value=data)
 
 
 @app.route('/reddit', methods=['POST'])
 def reddit_post():
-    return render_template("reddit.html", value=messages)
+    use_default = False
+    use_proxy = False
+    sub_link = request.form['link']
+    msg1 = request.form['msg1']
+    msg2 = request.form['msg2']
+    num_msg = request.form['num_msg']
+    
+    checkboxes = list(request.form.getlist('checkbox'))
+    for i in checkboxes:
+        if i == '1':
+            use_default = True
+        elif i == '2':
+            use_proxy = True
+
+    data = [{'id': '1', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '2', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '3', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '4', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '5', 'sub': 'reddit.com', 'num_msg': '0'},]
+    return render_template("reddit.html", value=data)
 
 
 @app.route("/khan-academy")
@@ -83,7 +99,7 @@ def generated():
 
 @app.route("/default-accounts")
 def default_accounts():
-    AddLineBreaks()
+    # AddLineBreaks()
     return render_template("/txt/default.txt")
 
 
