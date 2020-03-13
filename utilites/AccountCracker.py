@@ -163,7 +163,8 @@ class Website:
         self.index = 0
 
         options = webdriver.ChromeOptions()
-        options.add_argument("headless")
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
         try:
             self.driver = webdriver.Chrome("/chromedriver.exe", options=options)
         except WebDriverException:

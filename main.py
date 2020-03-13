@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, abort, redirect
 from utilites.TxtFileHelper import AddLineBreaks
 from utilites.GithubScraper import get_github_projects
-from utilites.AccountCracker import run
+from utilites.AccountCracker import run as account_run
+from utilites.RedditBot import run as reddit_run
 from flask.json import jsonify
+import threading
 import hmac
 import hashlib
 import git
@@ -78,6 +80,10 @@ def reddit_post():
         elif i == '2':
             use_proxy = True
 
+    vars = [use_default, use_proxy, sub_link, msg1, msg2, num_msg]
+    thread = threading.Thread(target=reddit_run, args=('____TendieLover____', 'Nick676', vars,))
+    thread.start()
+
     data = [{'id': '1', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '2', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '3', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '4', 'sub': 'reddit.com', 'num_msg': '0'},{'id': '5', 'sub': 'reddit.com', 'num_msg': '0'},]
     return render_template("reddit.html", value=data)
 
@@ -112,7 +118,7 @@ def form_post():
     emails5 = request.form['email5']
     usernames = [emails1, emails2, emails3, emails4, emails5]
     accounts = [{'index': '0', 'username': '', 'password': ''},]
-    accounts = run(usernames, False, False)
+    accounts = account_run(usernames, False, False)
     return render_template("account.html", value=accounts)
 
 
