@@ -108,12 +108,10 @@ class Website:
         self.driver.find_element_by_xpath("/html/body/div/div/div[2]/div/form/fieldset[5]/button").click()
 
     def send_comment(self, comment):
-        print("gay")
         wait_for_element(self.driver, "/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div/div")
-        print("Hi")  
 
         self.driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div/div").send_keys(comment)
-        self.driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div[3]/div/div[2]/div/div[1]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div[1]/button").click()
+        self.driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[3]/div[1]/button").click()
 
 
 def run(username, password, vars):
@@ -127,10 +125,9 @@ def run(username, password, vars):
     web.login()
     time.sleep(1)
     web.driver.get(web.url)
-    print("Got")
 
     while True:
-        web.send_comment("Wel you do propose a fair point...")
+        web.send_comment("Well you do propose a fair point...")
         time.sleep(3)
 
     web.driver.quit()
