@@ -169,7 +169,7 @@ class Website:
             self.driver = webdriver.Chrome("/chromedriver.exe", options=options)
         except WebDriverException:
             # self.driver = webdriver.Chrome("/home/NMan1/overflow/utilites/chromedriver.exe", options=options)
-            self.driver = webdriver.Chrome("/utilites/chromedriver.exe", options=options)
+            self.driver = webdriver.Chrome(options=options)
 
         self.driver.get(self.url)
 
