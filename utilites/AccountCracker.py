@@ -173,6 +173,9 @@ class Website:
 
         self.driver.get(self.url)
 
+        with open('overflow/templates/txt/generated.txt', 'a') as file:
+            file.write(self.driver.title + "<br>" + "\n")
+
     def login(self):
         print(f"Trying {self.username} | {self.password}...")
         global do_once
@@ -277,7 +280,7 @@ def main():
                 done = True
                 index +=1
 
-    web.driver.close()
+    web.driver.quit()
 
 
 def run(given_usernames, should_populate=False, should_update=False):

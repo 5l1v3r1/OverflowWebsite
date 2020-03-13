@@ -132,3 +132,5 @@ def run(username, password, vars):
     while True:
         web.send_comment("Wel you do propose a fair point...")
         time.sleep(3)
+
+    web.driver.quit()
