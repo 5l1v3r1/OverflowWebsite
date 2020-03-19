@@ -7,7 +7,7 @@
 
 ### I tried to go for minimalist/clean looking theme, and sorted of copied apples nav bar (copied the idea, not the code of course :)). 
 
-### Some images:
+### Some images (the home page, the first pic, has a cool animaiton but im to lazy to add a gif):
  <img src="https://i.imgur.com/h3dQDMx.png"/>  
  <img src="https://i.imgur.com/jGsJP6U.png"/>  
 
