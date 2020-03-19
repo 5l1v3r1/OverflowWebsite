@@ -7,7 +7,7 @@
 
 # I tried to go for minimalist/clean looking theme, and sorted of copied apples nav bar (copied the idea, not the code of course :)). 
 
-###Some images:
+### Some images:
 ![Image description](https://imgur.com/h3dQDMx)
 ![Image description](https://imgur.com/jGsJP6U)
 
