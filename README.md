@@ -9,5 +9,5 @@
 
 ### Some images:
  <img src="https://imgur.com/h3dQDMx"/>  
- <img src="https://imgur.com/jGsJP6U/>  
+ <img src="https://imgur.com/jGsJP6U"/>  
 
